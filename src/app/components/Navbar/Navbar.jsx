@@ -13,7 +13,7 @@ const Navbar = () => {
 
         </div>
         <div className={styles.logo}>
-            bezablog
+            beza blog
             
         </div>
         <div className={styles.links}>

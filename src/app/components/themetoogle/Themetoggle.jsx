@@ -1,13 +1,34 @@
-import React from 'react'
+"use client";
+
+import Image from "next/image";
+
 import styles from "./themetoggle.module.css"
+import { useContext } from "react";
+import { ThemeContext } from "@/context/ThemeContext";
 
 const ThemeToggle = () => {
-  return (
-    <div>
-        ThemeToggle
-      
-    </div>
-  )
-}
+  const { toggle, theme } = useContext(ThemeContext);
 
-export default ThemeToggle
+  return (
+    <div
+      className={styles.container}
+      onClick={toggle}
+      style={
+        theme === "dark" ? { backgroundColor: "white" } : { backgroundColor: "#0f172a" }
+      }
+    >
+      <Image src="/night-mode.png" alt="" width={14} height={14} />
+      <div
+        className={styles.ball}
+        style={
+          theme === "dark"
+            ? { left: 1, background: "#0f172a" }
+            : { right: 1, background: "white" }
+        }
+      ></div>
+      <Image src="/brightness.png" alt="" width={14} height={14} />
+    </div>
+  );
+};
+
+export default ThemeToggle;
